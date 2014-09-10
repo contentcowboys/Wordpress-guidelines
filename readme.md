@@ -7,9 +7,18 @@ Some things in this guide are very specific to or agency, or use software / plug
 
 In this instance I will explain how to do this in WAMP/Windows, but in essentially it will be the same on other platfroms.
 
-1. Open your host file as administrator (Win: C:\Windows\System32\drivers\etc)
-2. Add the following line at the end: ´127.0.0.1 dev.projectname.com´
-3. Go to your WAMP install folder and edit the following file ´\bin\apache\Apache2.4.4\conf\extra\httpd-vhosts.conf´
+1. Open your host file as administrator. On Win: `C:\Windows\System32\drivers\etc`
+2. Add the following line at the end: `127.0.0.1 dev.projectname.com`
+3. Go to your WAMP install folder and edit the following file `\bin\apache\Apache2.4.4\conf\extra\httpd-vhosts.conf`
+4. Add the following code at the end of this file (obvisouly change the folder location and vhost domain)
+
+ ```
+ <VirtualHost dev.projectname.com:80>
+ DocumentRoot "D:\development\projects\client\projectname"
+ ServerName dev.projectname.com
+ </VirtualHost>
+ ```
+ 5. Restart you wamp
 
 ## Installing Wordpress
 
