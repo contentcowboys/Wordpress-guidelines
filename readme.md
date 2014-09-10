@@ -14,15 +14,26 @@ In this instance I will explain how to do this in WAMP/Windows, but in essential
 
  ```
  <VirtualHost dev.projectname.com:80>
- DocumentRoot "D:\development\projects\client\projectname"
- ServerName dev.projectname.com
+    DocumentRoot "D:\development\projects\client\projectname"
+    ServerName dev.projectname.com
  </VirtualHost>
  ```
- 5. Restart you wamp
+ 5. Restart your WAMP
 
 ## Installing Wordpress
 
  1. Download the latest version from [here](http://wordpress.org/download/)
  2. Create a new  private repository on [Bitbucket](https://bitbucket.org/repo/create)
- 3. unzip the wordpress files into an folder
- 4.
+ 3. unzip the wordpress files into the root folder of your Vhost
+ 4. Do an initial commit
+ ```
+ $ git init && git add -A . && git commit -m "first init"
+ $ git remote add origin git@bitbucket.repo.link.git
+ $ git push -u origin master
+ ```
+ 5. Create an database for your project
+ 6. Run the installer go to http://dev.projectname.com
+ 7. Rename wp-config.php to wp-config.generated.php `mv wp-config.php wp-config.generated.php`
+ 8. Copy the following wp-config.php to your root [wp-config.php](LINK TO) or wget it `wget link to file`  //TODO
+ 9. Copy the "Authentication Unique Keys and Salts" from wp-config.generated.php from line 46 to 53 and paste them in wp-config from line xx to xx //TODO
+ 10. change all the settings in wp-config.php to your liking. Just follow the directions in the comments
